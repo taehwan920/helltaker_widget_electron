@@ -1,0 +1,12 @@
+{
+  "name": "helltaker_widget_electron",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.0.5"
+  }
+}
