@@ -9,8 +9,8 @@ const createWindow = () => {
     const miniIconPath = './images/Lucifer_mini.png';
     const appIcon = new Tray(miniIconPath)
     let win = new BrowserWindow({
-        width: 156,
-        height: 183,
+        width: 300,
+        height: 300,
         icon: miniIconPath,
         // frame: false,
         // transparent: true,
@@ -23,3 +23,16 @@ const createWindow = () => {
 };
 
 app.whenReady().then(createWindow);
+
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+});
+
+app.on('activate', () => {
+    if (win === null) {
+        createWindow();
+    }
+});

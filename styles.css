@@ -7,3 +7,8 @@
 body {
     overflow: hidden;
 }
+
+main {
+    width: 150px;
+    height: 150px;
+}

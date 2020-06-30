@@ -1,7 +1,7 @@
 {
   "name": "helltaker_widget_electron",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
