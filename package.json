@@ -1,12 +1,57 @@
 {
   "name": "helltaker_widget_electron",
+  "description": "",
+  "author": "taehwan920@gmail.com",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build:osx": "build --mac",
+    "build:win": "npm run build:win32 && npm run build:win64",
+    "build:win32": "build --win --ia32",
+    "build:win64": "build --win --x64"
   },
   "license": "ISC",
   "devDependencies": {
-    "electron": "^9.0.5"
+    "asar": "^3.0.3",
+    "electron": "^9.0.5",
+    "electron-builder": "^22.7.0"
+  },
+  "build": {
+    "productName": "Helltaker_widget",
+    "appId": "com.electron.helltaker_widget",
+    "asar": true,
+    "protocols": {
+      "name": "helltaker_widget",
+      "schemes": [
+        "helltaker_widget"
+      ]
+    },
+    "mac": {
+      "target": [
+        "default"
+      ],
+      "icon": "./resources/installer/Lucifer_icon_nwin.icns"
+    },
+    "dmg": {
+      "title": "HelloElectron",
+      "icon": "./resources/installer/Lucifer_icon_nwin.icns"
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": ".resources/images/lucifer_icon_win.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    }
   }
 }
