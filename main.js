@@ -9,11 +9,11 @@ const createWindow = () => {
     const miniIconPath = './images/Lucifer_mini.png';
     const appIcon = new Tray(miniIconPath)
     let win = new BrowserWindow({
-        width: 300,
-        height: 300,
+        width: 150,
+        height: 150,
         icon: miniIconPath,
-        // frame: false,
-        // transparent: true,
+        frame: false,
+        transparent: true,
         webPreferences: {
             nodeIntegration: true
         }
