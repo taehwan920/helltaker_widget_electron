@@ -14,6 +14,7 @@ const createWindow = () => {
         frame: false,
         transparent: true,
         alwaysOnTop: true,
+        skipTaskbar: true,
         webPreferences: {
             nodeIntegration: true
         }
