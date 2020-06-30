@@ -6,6 +6,20 @@ const fs = require('fs');
 const imagePath = './images/devils'
 const devils = fs.readdirSync(imagePath);
 let devilIdx = devils.indexOf('Lucifer.png');
+const devilName = `${devils[devilIdx].slice(0, -4)}`;
+
+const translateName = (name) => {
+    if (name === 'Azazel') { return '아자젤' }
+    if (name === 'Cerberus') { return '케르베로스' }
+    if (name === 'Judgement') { return '저지먼트' }
+    if (name === 'Justice') { return '저스티스' }
+    if (name === 'Lucifer') { return '루시퍼' }
+    if (name === 'Malina') { return '말리나' }
+    if (name === 'Modeus') { return '모데우스' }
+    if (name === 'Pandemonica') { return '판데모니카' }
+    if (name === 'Zdrada') { return '즈드라다' }
+};
+const KoreanName = translateName(devilName);
 
 let frame_interval = 55;
 let frame_pos_X = 0;
@@ -15,7 +29,7 @@ const mainFrame = document.querySelector('main');
 let intervalEraser;
 
 const danceDevil = () => {
-    document.title = `Hello ${devils[devilIdx].slice(0, -4)}!`;
+    document.title = `안녕 ${KoreanName}!`;
     mainFrame.style.backgroundImage = `url('${imagePath}/${devils[devilIdx]}')`;
 
     clearInterval(intervalEraser);
@@ -49,3 +63,4 @@ window.addEventListener('keydown', (e) => {
     }
 
 });
+

@@ -1,29 +1,36 @@
+'use strict';
 const electron = require('electron');
 const fs = require('fs');
-const { app, BrowserWindow, Tray } = require('electron');
+const { app, BrowserWindow, Tray, Menu } = require('electron');
 
-const devilImages = fs.readdirSync('./images/devils');
-
+const miniIconPath = './images/Lucifer_mini.png';
+let tray = null;
 
 const createWindow = () => {
-    const miniIconPath = './images/Lucifer_mini.png';
-    const appIcon = new Tray(miniIconPath)
     let win = new BrowserWindow({
         width: 150,
         height: 150,
         icon: miniIconPath,
         frame: false,
         transparent: true,
+        alwaysOnTop: true,
         webPreferences: {
             nodeIntegration: true
         }
-    })
+    });
 
     win.loadFile('index.html')
 };
 
 app.whenReady().then(createWindow);
 
+app.on('ready', () => {
+    tray = new Tray(miniIconPath);
+    const ctxMenu = Menu.buildFromTemplate([
+        { label: `또 봐!`, type: 'normal', role: 'quit' },
+    ]);
+    tray.setContextMenu(ctxMenu);
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
