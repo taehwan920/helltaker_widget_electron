@@ -3,9 +3,7 @@ const electron = require('electron');
 const fs = require('fs');
 const { app, BrowserWindow, Tray, Menu } = require('electron');
 
-let deployPath = '/resources';
-deployPath = '';
-const miniIconPath = `.${deployPath}/images/Lucifer_mini.png`;
+const miniIconPath = `${__dirname}/images/Lucifer_mini.png`;
 let tray = null;
 
 const createWindow = () => {
@@ -22,7 +20,7 @@ const createWindow = () => {
         }
     });
 
-    win.loadFile(`.${deployPath}/index.html`)
+    win.loadFile(`./index.html`)
 };
 
 app.whenReady().then(createWindow);

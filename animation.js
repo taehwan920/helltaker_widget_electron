@@ -2,10 +2,9 @@
 console.log('animation.js is working!');
 
 const fs = require('fs');
+const path = require('path');
 
-let deployPath = '/resources';
-deployPath = '';
-const imagePath = `.${deployPath}/images/devils`
+const imagePath = `${__dirname}/images/devils`;
 const devils = fs.readdirSync(imagePath);
 let devilIdx = devils.indexOf('Lucifer.png');
 const devilName = `${devils[devilIdx].slice(0, -4)}`;
@@ -30,9 +29,10 @@ const mainFrame = document.querySelector('main');
 
 let intervalEraser;
 
+
 const danceDevil = () => {
     document.title = `안녕 ${KoreanName}!`;
-    mainFrame.style.backgroundImage = `url('${imagePath}/${devils[devilIdx]}')`;
+    mainFrame.style.backgroundImage = `url('./images/devils/${devils[devilIdx]}')`;
 
     clearInterval(intervalEraser);
 

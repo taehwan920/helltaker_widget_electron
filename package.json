@@ -1,15 +1,15 @@
 {
   "name": "helltaker_widget_electron",
-  "description": "",
+  "description": "This is a widget shows devils in helltaker dance all the time",
   "author": "taehwan920@gmail.com",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build:osx": "build --mac",
+    "build:osx": "electron-builder --mac",
     "build:win": "npm run build:win32 && npm run build:win64",
     "build:win32": "build --win --ia32",
-    "build:win64": "build --win --x64"
+    "build:win64": "electron-builder --win --x64"
   },
   "license": "ISC",
   "devDependencies": {
@@ -20,7 +20,7 @@
   "build": {
     "productName": "Helltaker_widget",
     "appId": "com.electron.helltaker_widget",
-    "asar": true,
+    "asar": false,
     "protocols": {
       "name": "helltaker_widget",
       "schemes": [
@@ -31,26 +31,27 @@
       "target": [
         "default"
       ],
-      "icon": "./resources/installer/Lucifer_icon_nwin.icns"
+      "icon": "./images/Lucifer_icon.icns"
     },
     "dmg": {
-      "title": "HelloElectron",
-      "icon": "./resources/installer/Lucifer_icon_nwin.icns"
+      "icon": "./images/Lucifer_icon.icns"
     },
     "win": {
       "target": [
         "zip",
         "nsis"
       ],
-      "icon": ".resources/images/lucifer_icon_win.ico"
+      "icon": "./build/Lucifer_icon.ico"
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./build/Lucifer_icon.ico",
+      "installerHeaderIcon": "./build/Lucifer_icon.ico"
     },
     "directories": {
-      "buildResources": "./resources/installer/",
-      "output": "./dist/",
+      "buildResources": "build",
+      "output": "./release_mac",
       "app": "."
     }
   }
