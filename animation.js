@@ -3,7 +3,7 @@ console.log('animation.js is working!');
 
 const fs = require('fs');
 
-const imagePath = './images/devils'
+const imagePath = './resources/app/images/devils'
 const devils = fs.readdirSync(imagePath);
 let devilIdx = devils.indexOf('Lucifer.png');
 const devilName = `${devils[devilIdx].slice(0, -4)}`;
